@@ -28,6 +28,10 @@ def main():
             return 0
         else:
             print("Wrong Guess")
+            if guess_value > assumed_number:
+                print("Think low")
+            else:
+                print("Think High")
     
     print("You Lost the game")
 
