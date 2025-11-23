@@ -10,5 +10,15 @@ def add(a,b, c=10):
 def greet(username, prepend="Hello", append='Welcome to session'):
     return prepend + ' '+ username + ' ' + append
 
+def add(*args):
+    total = 0
+    print(type(args))
+    for num in args:
+        total += num
+    
+    return total
+
 if __name__ == '__main__':
     print(greet('Vishwas',append='Welcome to python Session'))
+    print(add(2,3,4,5))
+    print(add(10,20))
