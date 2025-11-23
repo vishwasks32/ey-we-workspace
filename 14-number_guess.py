@@ -14,6 +14,15 @@ MAX_GUESSES = 3
 def random_guess():
     return randint(MIN_VAL, MAX_VAL)
 
+def validate_input(guessed_val):
+    if not guessed_val.isdigit():
+            return False
+    
+    if int(guessed_val) < 1 or int(guessed_val) > 10:
+        return False
+    
+    return True
+
 def main():
     # Do setup
     # assume a random number
@@ -22,13 +31,16 @@ def main():
     # set the number of guess = 3
     # Start the loop
     for chance in range(MAX_GUESSES):
-        guess_value = int(input('Enter any guess Number between 1 & 10: '))
-        if guess_value == assumed_number:
+        guess_value = input('Enter any guess Number between 1 & 10: ')
+        if not validate_input(guess_value):
+            print("Invalid Guess")
+            print("You Lost a chance")
+        elif int(guess_value) == assumed_number:
             print(f"You Won")
             return 0
         else:
             print("Wrong Guess")
-            if guess_value > assumed_number:
+            if int(guess_value) > assumed_number:
                 print("Think low")
             else:
                 print("Think High")
