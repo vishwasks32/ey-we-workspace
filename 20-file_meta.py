@@ -12,7 +12,7 @@ def summary_writer(op_file,**kwargs):
     try:
         with open(op_file, "+a") as fh:
             for k,v in kwargs.items():
-                fh.write(f"{k}:{v}")
+                fh.write(f"{k}:{v}\n")
     except FileExistsError:
         print("File Exists")
 
